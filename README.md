@@ -1,60 +1,83 @@
-# Node Mongo Project
+### Node Mongo Project
 
-A simple CRUD application built with Node.js and MongoDB to manage a list of books.
-
-## Description
+A simple CRUD application built with Node.js, Express.js, and MongoDB to manage a list of books.
+Description
 
 This project is a basic web application where users can:
 
-- Add new books to the database.
-- View the list of books.
-- Edit existing books.
-- Delete books from the database.
+    Add new books to the database.
+    View the list of books.
+    Edit existing book details.
+    Delete books from the database.
 
-The application uses **Node.js** for the server, **Express.js** for routing, and **MongoDB** for the database.
+The application uses Node.js for the server, Express.js for routing, and MongoDB for the database.
+Features
 
----
+    Add new books with details like title, author, and publication year.
+    Display a list of books with their details.
+    Edit and update book information.
+    Delete books from the list.
+    All data is stored persistently in a MongoDB database.
 
-## Features
+Installation
+Prerequisites
 
-- Add new books with title, author, and publication year.
-- View a list of books with their details.
-- Edit and update book details.
-- Delete books from the list.
-- Data is stored in a MongoDB database.
+To run this project, ensure you have the following installed:
 
----
+    Node.js - JavaScript runtime environment.
+    MongoDB - Database for storing book data.
 
-## Installation
+Steps to Set Up
+### 1. Clone the repository:
 
-### Prerequisites
+Clone the project from GitHub to your local machine:
+```bash 
+git clone https://github.com/HAMZA-RA/MongoNodeApp.git
+cd MongoNodeApp
 
-To run this project, you need the following installed:
+```
+### 2. Install dependencies:
 
-- [Node.js](https://nodejs.org/en/) - The JavaScript runtime used to run the application.
-- [MongoDB](https://www.mongodb.com/) - The database to store and manage book data.
-
-### Steps to Set Up
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/HAMZA-RA/MongoNodeApp.git
-   cd node-mongo-project
-2.**Install dependencies:**
-
-Inside the project folder, run the following command to install the required dependencies:
-   
+Navigate to the project directory and install the required dependencies:
+```bash
 npm install
+```
+### 3. Set up your MongoDB database:
 
-3.**Set up your MongoDB database:**
+    If using a local MongoDB instance, ensure MongoDB is running on your system.
+    If using MongoDB Atlas or another remote MongoDB service, update the MONGO_URI  value in the .env file to your database connection string.
+```bash
+Example .env file:
 
-If you're using MongoDB Atlas or another remote MongoDB service, update the mongoose.connect() URL in your code accordingly.
+PORT=3000
+MONGO_URI=mongodb://0.0.0.0:27017/books
+```
+### 4. Start the server:
 
-4.**Start the server:**
-
-After installing the dependencies and setting up MongoDB, you can start the server with:
-
+Run the following command to start the application:
+```bash
 npm start
+```
+### 5. Access the application:
 
-The application will be running on http://localhost:3000.
+Open your browser and navigate to:
+
+http://localhost:3000
+
+Usage
+
+    Homepage: View the list of books.
+    Add Book: Navigate to /api/books/add to add a new book.
+    Edit Book: Click on "Edit" for any book in the list to modify its details.
+    Delete Book: Click on "Delete" to remove a book from the list.
+
+Technologies Used
+
+    Node.js: JavaScript runtime for server-side programming.
+    Express.js: Framework for building web applications and APIs.
+    MongoDB: NoSQL database for storing and retrieving book data.
+    Mongoose: MongoDB object modeling tool for Node.js.
+
+License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
