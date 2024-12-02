@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');  // For rendering views
+require('dotenv').config(); 
 
 const app = express();
 const PORT = 3000;
@@ -17,7 +18,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));  // Ensure views are in the right directory
 
 // Use the environment variable for the MongoDB URI
-const mongoURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/books';
+const mongoURI = process.env.MONGODB_URI ;
 
 // MongoDB Connection
 mongoose.connect(mongoURI, {
