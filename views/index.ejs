@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books List</title>
+    <style>
+        /* Global Style */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        /* Book List Container */
+        .book-list {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            font-size: 1.1rem;
+        }
+
+        .book-item:last-child {
+            border-bottom: none;
+        }
+
+        .book-item strong {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        /* Actions Section */
+        .actions a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 1rem;
+            margin-right: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .actions a:hover {
+            color: #0056b3;
+        }
+
+        .actions a.delete {
+            color: red;
+        }
+
+        .actions a.delete:hover {
+            color: darkred;
+        }
+
+        /* Add New Book Button */
+        .add-book-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-book-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .book-list {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .book-item {
+                font-size: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .actions {
+                margin-top: 10px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .actions a {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Books List</h1>
+
+    <div class="book-list">
+        <ul>
+            <% books.forEach(book => { %>
+                <li class="book-item">
+                    <div>
+                        <strong><%= book.title %></strong> by <%= book.author %> (Published: <%= book.publishedYear %>)
+                    </div>
+                    <div class="actions">
+                        <a href="/api/books/edit/<%= book._id %>">Edit</a>
+                        <a href="/api/books/delete/<%= book._id %>" class="delete">Delete</a>
+                    </div>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="/api/books/add" class="add-book-btn">Add New Book</a>
+    </div>
+
+</body>
+</html>
